@@ -1,9 +1,10 @@
 #include <iostream>
 #include <math.h>
+
 int main() {
-  double resting_mass;
-  double velocity;
-  double relative_mass;
+  long long resting_mass;
+  long long velocity;
+  long long relative_mass;
   std::string unit = "kg";
 
   std::cout << "Welcome to this Calculator\n";
@@ -18,7 +19,19 @@ int main() {
   } else {
     relative_mass =
         resting_mass / sqrt(1 - pow(velocity, 2) / pow(299792458, 2));
-    if (relative_mass >= 1000000) {
+    if (relative_mass >= 1000000000000000000) {
+      relative_mass /= 1000000000000000000;
+      unit = "Pt";
+    } else if (relative_mass >= 1000000000000000) {
+      relative_mass /= 1000000000000000;
+      unit = "Tt";
+    } else if (relative_mass >= 1000000000000) {
+      relative_mass /= 1000000000000;
+      unit = "Gt";
+    } else if (relative_mass >= 1000000000) {
+      relative_mass /= 1000000000;
+      unit = "Mt";
+    } else if (relative_mass >= 1000000) {
       relative_mass /= 1000000;
       unit = "kt";
     } else if (relative_mass >= 1000) {
